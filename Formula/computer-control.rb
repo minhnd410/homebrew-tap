@@ -6,25 +6,25 @@
 class ComputerControl < Formula
   desc "Desktop and mobile-simulator automation, as an MCP server"
   homepage "https://github.com/minhnd410/computer-control"
-  version "0.2.0"
+  version "0.3.0"
   license "MIT"
 
   on_macos do
     depends_on macos: :monterey # ScreenCaptureKit needs 12.3+
     on_arm do
-      url "https://github.com/minhnd410/computer-control/releases/download/v0.2.0/computer-control-macos-arm64.tar.gz"
-      sha256 "057fdaa7871f4fa9d95ea45716be72c648ce60b5672ba183299acc583c7e137c"
+      url "https://github.com/minhnd410/computer-control/releases/download/v0.3.0/computer-control-macos-arm64.tar.gz"
+      sha256 "501224ec964d25cd3a3667013d12ac0f728eb5e12d7bcf7014d77a61eb461735"
     end
     on_intel do
-      url "https://github.com/minhnd410/computer-control/releases/download/v0.2.0/computer-control-macos-x86_64.tar.gz"
-      sha256 "37c92f21dd2f42bb098d02ff2f3c1175c772ee677054086912c13af3b5db8138"
+      url "https://github.com/minhnd410/computer-control/releases/download/v0.3.0/computer-control-macos-x86_64.tar.gz"
+      sha256 "e9e448f46c45be488e7de705a3eb764ae030dca093d1cf83360504fc834e8657"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/minhnd410/computer-control/releases/download/v0.2.0/computer-control-linux-x86_64.tar.gz"
-      sha256 "86d357fdaa1a63dfd1746a8f4eba1966eb06f5db2cc758a09c13b12331b71a67"
+      url "https://github.com/minhnd410/computer-control/releases/download/v0.3.0/computer-control-linux-x86_64.tar.gz"
+      sha256 "2829da353a2952bac5e03a7b956f7b964a2bf041f6a6dcff7ef6cc68d92e60ec"
     end
     on_arm do
       odie "No prebuilt archive for Linux on arm64 yet. Build from source: " \
@@ -37,21 +37,18 @@ class ComputerControl < Formula
   end
 
   def caveats
-    on_macos do
-      <<~TEXT
-        computer-control needs two macOS permissions:
-          Accessibility                    input and the accessibility tree
-          Screen & System Audio Recording  screenshots
+    <<~TEXT
+      Finish setting up by running:
 
-        Grant them, then check:
-          computer-control-mcp --request-permissions
-          computer-control-mcp --doctor
+        computer-control-mcp setup
 
-        A binary launched from a terminal inherits that terminal's grant and
-        never appears in System Settings on its own. If element queries come
-        back empty, --doctor explains why and what to add.
-      TEXT
-    end
+      It finds the MCP clients on this machine, asks which should get
+      computer-control, writes the config for the ones you pick, and then
+      requests the OS permissions it needs. Run it again any time.
+
+      Homebrew cannot prompt during install, which is why this is a separate
+      command rather than something that already happened.
+    TEXT
   end
 
   test do
