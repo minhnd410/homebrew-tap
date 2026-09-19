@@ -6,25 +6,28 @@
 class ComputerControl < Formula
   desc "Desktop and mobile-simulator automation, as an MCP server"
   homepage "https://github.com/minhnd410/computer-control"
-  version "0.8.1"
+  version "0.8.2"
   license "MIT"
 
   on_macos do
-    depends_on macos: :monterey # ScreenCaptureKit needs 12.3+
+    # Sonoma, not Monterey: the capture path calls SCScreenshotManager (14.0),
+    # and the binary is built with a matching deployment target. Promising
+    # Monterey here installed a binary that dyld then refused to load.
+    depends_on macos: :sonoma
     on_arm do
-      url "https://github.com/minhnd410/computer-control/releases/download/v0.8.1/computer-control-macos-arm64.tar.gz"
-      sha256 "580a5d6d1bbb96a03b554f31254490da4e9b5f94a0f4f59b2bda37f1865b7b0a"
+      url "https://github.com/minhnd410/computer-control/releases/download/v0.8.2/computer-control-macos-arm64.tar.gz"
+      sha256 "bccbec343066864c0d20198257d3e17b06dae4f52f9b4841e826ed1c0cbe5275"
     end
     on_intel do
-      url "https://github.com/minhnd410/computer-control/releases/download/v0.8.1/computer-control-macos-x86_64.tar.gz"
-      sha256 "56d18e89927a23546b527a48b1b27e4e3e52f0180d76303e647afc525e3fa375"
+      url "https://github.com/minhnd410/computer-control/releases/download/v0.8.2/computer-control-macos-x86_64.tar.gz"
+      sha256 "e4730098cd5b91aef688ad5d561c26311c26df813a85194048a6c59d22a14d9a"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/minhnd410/computer-control/releases/download/v0.8.1/computer-control-linux-x86_64.tar.gz"
-      sha256 "12d9d3e414afcbf705aa56c1b2c9e123fe6eaa94baff140d91551e05b759dfb5"
+      url "https://github.com/minhnd410/computer-control/releases/download/v0.8.2/computer-control-linux-x86_64.tar.gz"
+      sha256 "073287b794d3668a48bd5d74d14f3ee364f1ca9d8cace373f293623a00f33450"
     end
     on_arm do
       odie "No prebuilt archive for Linux on arm64 yet. Build from source: " \
