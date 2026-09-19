@@ -6,25 +6,25 @@
 class ComputerControl < Formula
   desc "Desktop and mobile-simulator automation, as an MCP server"
   homepage "https://github.com/minhnd410/computer-control"
-  version "0.6.1"
+  version "0.6.2"
   license "MIT"
 
   on_macos do
     depends_on macos: :monterey # ScreenCaptureKit needs 12.3+
     on_arm do
-      url "https://github.com/minhnd410/computer-control/releases/download/v0.6.1/computer-control-macos-arm64.tar.gz"
-      sha256 "b37bfbe4d8787d0df8f396185359cbf6fac158dfb02c861d6a6e40ef4c63c852"
+      url "https://github.com/minhnd410/computer-control/releases/download/v0.6.2/computer-control-macos-arm64.tar.gz"
+      sha256 "0c4b83fef0f27eeb5a4033d080806c16002ecc6c806c63da735078e16e06bd00"
     end
     on_intel do
-      url "https://github.com/minhnd410/computer-control/releases/download/v0.6.1/computer-control-macos-x86_64.tar.gz"
-      sha256 "703622ff8d2204ce364279940f05f9b545ac98eb0563b637e9b5af2a58b015b2"
+      url "https://github.com/minhnd410/computer-control/releases/download/v0.6.2/computer-control-macos-x86_64.tar.gz"
+      sha256 "4da0a534ec64775baedb938734d16ecc8fcf600ac379967924ee633d79c11e48"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/minhnd410/computer-control/releases/download/v0.6.1/computer-control-linux-x86_64.tar.gz"
-      sha256 "bb0442cc843a814354d9e93422d35ba7b087ffc5c9fade3d81f393f727c99333"
+      url "https://github.com/minhnd410/computer-control/releases/download/v0.6.2/computer-control-linux-x86_64.tar.gz"
+      sha256 "940ddd082d26be70c13f2f4377648311f0c23eb647e182b81182338f2b5e5a4f"
     end
     on_arm do
       odie "No prebuilt archive for Linux on arm64 yet. Build from source: " \
