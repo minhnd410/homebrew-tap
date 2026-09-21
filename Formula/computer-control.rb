@@ -6,7 +6,7 @@
 class ComputerControl < Formula
   desc "Desktop and mobile-simulator automation, as an MCP server"
   homepage "https://github.com/minhnd410/computer-control"
-  version "0.8.11"
+  version "0.8.12"
   license "MIT"
 
   on_macos do
@@ -15,19 +15,19 @@ class ComputerControl < Formula
     # Monterey here installed a binary that dyld then refused to load.
     depends_on macos: :sonoma
     on_arm do
-      url "https://github.com/minhnd410/computer-control/releases/download/v0.8.11/computer-control-macos-arm64.tar.gz"
-      sha256 "832a9cacbec15e8281d1287c06b0fcc432c0aa1d82383a8336c28984684de5ea"
+      url "https://github.com/minhnd410/computer-control/releases/download/v0.8.12/computer-control-macos-arm64.tar.gz"
+      sha256 "a9d65773d69009ccca17af0aea543ba925b346339ce508d8d15f3412e098a1b0"
     end
     on_intel do
-      url "https://github.com/minhnd410/computer-control/releases/download/v0.8.11/computer-control-macos-x86_64.tar.gz"
-      sha256 "d5ed042c6fa6f6b68771ebec2ba9d9e2ae0f30839aaf523252a889b1b6b0d032"
+      url "https://github.com/minhnd410/computer-control/releases/download/v0.8.12/computer-control-macos-x86_64.tar.gz"
+      sha256 "c1401250544bca45b67286bb00fa2354edfee25e0725aaf74d492c12509774d4"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/minhnd410/computer-control/releases/download/v0.8.11/computer-control-linux-x86_64.tar.gz"
-      sha256 "f69bb72f99f4fb3e9c6431e852783c68519b7cb1f95276ea85a103a933a2f33f"
+      url "https://github.com/minhnd410/computer-control/releases/download/v0.8.12/computer-control-linux-x86_64.tar.gz"
+      sha256 "d0e60256f7b0395e6085eb5ceecc8d5cc97fbf7807434f6657187ec8e287ff13"
     end
     on_arm do
       odie "No prebuilt archive for Linux on arm64 yet. Build from source: " \
